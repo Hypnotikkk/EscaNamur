@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscaNamur</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+<body>
+  <!-- =================== OVERLAY INDEX2 =================== -->
+   <div id="overlay">
+     <div class="overlay-content">
+       <h1>Bienvenue sur EscaNamur !</h1>
+       <p>Un site immersif dans la peau d'un innocent escargot..</p>
+       <button id="start-overlay-btn">Commencer</button>
+     </div>
+   </div>
+   <!-- ======================================================= -->
+
+  <div id="game-container">
+    <div id="info-message" class="info-message"></div>
+
+    <button id="start-btn">Start</button>
+    <!-- Grille 5×5 -->
+    <ul class="grid js-grid">
+      <!-- 25 cellules, x de 0 à 4, y de 0 à 4 -->
+      <li class="cell cell--black js-cell"   data-x="0" data-y="0"></li>
+      <li class="cell cell--grey  js-cell"   data-x="1" data-y="0">
+        <button class="js-cell-action bottom arrow-bottom" data-action-y="1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img decors/sol béton.png" class="sol-beton">
+        <img src="img batiment/gare de namur.png" class="gare">
+        <img src="img decors/panneau.png" class="panneau-gare">
+        <img src="img/Gare.png" class="txt-gare-panneau">
+        <img src="img jeux/train droit.png" class="train">
+        <img src="img jeux/jeu gare.png" class="jeu-gare">
+        <img src="img jeux/panneau gare éteind.png" class="panneau-éteind">
+        <img src="img jeux/panneau gare.png" class="panneau-allumé">
+        <p class="txt-gare">Pour rien au monde Djoseph et Francwès n'iront à la Gare, pourtant l'un des nœuds ferroviaire les plus important du plat pays ! Ils ne veulent pas partir de Namur, et les trains sont trop rapides pour eux, habitués à prendre leur temps. </p>
+        <img src="img decors/banc.png" class="banc-gare">
+        <img src="img decors/Buisson.png" class="buisson-herbe-1">
+
+        <div class="groupe bleu">
+        <img src="img jeux/particule.png" class="particule particule-bleu-1">
+        <img src="img jeux/particule.png" class="particule particule-bleu-2">
+        <img src="img jeux/particule.png" class="particule particule-bleu-3">
+        <img src="img jeux/particule.png" class="particule particule-bleu-4">
+        <img src="img jeux/particule.png" class="particule particule-bleu-5">
+        <img src="img jeux/particule.png" class="particule particule-bleu-6">
+        <img src="img jeux/particule.png" class="particule particule-bleu-7">
+        <img src="img jeux/particule.png" class="particule particule-bleu-8">
+        </div>
+        <div class="groupe vert">
+        <img src="img jeux/particule.png" class="particule particule-vert-1">
+        <img src="img jeux/particule.png" class="particule particule-vert-2">
+        <img src="img jeux/particule.png" class="particule particule-vert-3">
+        <img src="img jeux/particule.png" class="particule particule-vert-4">
+        </div>
+        <div class="groupe rouge">
+        <img src="img jeux/particule.png" class="particule particule-rouge-1">
+        <img src="img jeux/particule.png" class="particule particule-rouge-2">
+        <img src="img jeux/particule.png" class="particule particule-rouge-3">
+        <img src="img jeux/particule.png" class="particule particule-rouge-4">
+        </div>
+        <div class="groupe jaune">
+        <img src="img jeux/particule.png" class="particule particule-jaune-1">
+        <img src="img jeux/particule.png" class="particule particule-jaune-2">
+        <img src="img jeux/particule.png" class="particule particule-jaune-3">
+        <img src="img jeux/particule.png" class="particule particule-jaune-4">
+        <img src="img jeux/particule.png" class="particule particule-jaune-5">
+        <img src="img jeux/particule.png" class="particule particule-jaune-6">
+        </div>
+      </li>
+      <li class="cell cell--black js-cell"   data-x="2" data-y="0"></li>
+      <li class="cell cell--black js-cell"   data-x="3" data-y="0"></li>
+      <li class="cell cell--black js-cell"   data-x="4" data-y="0"></li>
+
+      <li class="cell cell--vert js-cell"   data-x="0" data-y="1">
+        <button class="js-cell-action right arrow-right" data-action-x="1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img batiment/beffroi cassé.png" class="beffroi-jeu">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+      <li class="cell cell--blue  js-cell"   data-x="1" data-y="1">
+        <button class="js-cell-action top   arrow-top"    data-action-y="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action bottom arrow-bottom" data-action-y="1"><img src="img/flèche.png" class="test"/></button>
+        <div class="beffroi-jeu-fleche">?</div>
+        <img src="img decors/nuage.png" class="nuage-beffroi-1">
+        <img src="img decors/nuage.png" class="nuage-beffroi-2">
+        <img src="img decors/nuage.png" class="nuage-beffroi-3">
+        <img src="img decors/nuage.png" class="nuage-beffroi-4">
+        <img src="img decors/nuage.png" class="nuage-beffroi-5">
+
+        <img src="img decors/Buisson.png" class="buisson-beffroi-1">
+        <img src="img decors/Buisson.png" class="buisson-beffroi-2">
+        <img src="img decors/Buisson.png" class="buisson-beffroi-3">
+        <img src="img decors/Buisson.png" class="buisson-beffroi-4">
+        <img src="img decors/Buisson.png" class="buisson-beffroi-5">
+        <img src="img decors/Buisson.png" class="buisson-beffroi-6">
+
+        <img src="img decors/arbre 1.png" class="arbre-beffroi-1">
+        <img src="img decors/arbre 1.png" class="arbre-beffroi-2">
+        <img src="img decors/arbre 2.png" class="arbre-beffroi-3">
+        <img src="img decors/arbre 2.png" class="arbre-beffroi-4">
+
+        <img src="img/Beffroi (1).png " class="txt-beffroi-panneau">
+        <img src="img decors/panneau.png" class="panneau-beffroi">
+
+        <img src="img decors/batiment deco 2.png" class="bat-beffroi-1">
+        <img src="img decors/batiments décoratif.png" class="bat-beffroi-2">
+        <img src="img decors/batiment deco 2.png" class="bat-beffroi-3">
+        <img src="img decors/batiments décoratif.png" class="bat-beffroi-4">
+        <img src="img decors/batiments décoratif.png" class="bat-beffroi-5">
+        <img src="img decors/batiment deco 2.png" class="bat-beffroi-6">
+
+        <img src="img decors/banc.png" class="banc-beffroi-1">
+
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-beffroi-1">
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-beffroi-2">
+        <img src="img decors/fleur rose.png" class="fleur-rose-beffroi-1">
+        <img src="img decors/fleur rose.png" class="fleur-rose-beffroi-2">
+
+        <img src="img decors/lampadaire.png" class="lampadaire-beffroi-1">
+        <img src="img decors/lampadaire.png" class="lampadaire-beffroi-2">
+
+        <img src="img decors/poubelle.png" class="poubelle-beffroi-1">
+
+        <img src="img jeux/cartel.png" class="info-bat">
+        <p class="txt-beffroi">La tour est sûrement l'une des plus vieille bâtisse de Namur, même Djoseph et Francwès se sentent jeunes quand ils passent à côté de la tour médiévale, ce qui n'est pas rien !</p>
+
+        <img src="img batiment/Le beffroi.png" class="beffroi">
+        <img src="img batiment/beffroi cassé.png" class="beffroi1">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+      <li class="cell cell--dblue js-cell"   data-x="2" data-y="1">
+        <button class="js-cell-action bottom arrow-bottom" data-action-y="1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img decors/nuage.png" class="nuage-bourse-1">
+        <img src="img decors/nuage.png" class="nuage-bourse-2">
+        <img src="img decors/nuage.png" class="nuage-bourse-3">
+        <img src="img decors/nuage.png" class="nuage-bourse-4">
+        <img src="img decors/nuage.png" class="nuage-bourse-5">
+
+        <img src="img decors/Buisson.png" class="buisson-bourse-1">
+        <img src="img decors/Buisson.png" class="buisson-bourse-2">
+        <img src="img decors/Buisson.png" class="buisson-bourse-3">
+        <img src="img decors/Buisson.png" class="buisson-bourse-4">
+        <img src="img decors/Buisson.png" class="buisson-bourse-5">
+        <img src="img decors/Buisson.png" class="buisson-bourse-6">
+
+        <img src="img decors/arbre 1.png" class="arbre-bourse-1">
+        <img src="img decors/arbre 1.png" class="arbre-bourse-2">
+        <img src="img decors/arbre 2.png" class="arbre-bourse-3">
+        <img src="img decors/arbre 2.png" class="arbre-bourse-4">
+
+        <img src="img decors/banc.png" class="banc-bourse-1">
+        <img src="img decors/banc.png" class="banc-bourse-2">
+
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-bourse-1">
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-bourse-2">
+        <img src="img decors/fleur rose.png" class="fleur-rose-bourse-1">
+
+        <img src="img decors/lampadaire.png" class="lampadaire-bourse-1">
+        <img src="img decors/poubelle.png" class="poubelle-bourse-1">
+
+        <img src="img decors/cage ouverte.png" class="cage-ouverte">
+        <img src="img decors/escargot 2.png" class="snail-fin">
+        
+        <img src="img batiment/place d'arme.png" class="bourse">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+      <li class="cell cell--black js-cell"   data-x="3" data-y="1"></li>
+      <li class="cell cell--black js-cell"   data-x="4" data-y="1"></li>
+
+      <li class="cell cell--red   js-cell"   data-x="0" data-y="2">
+        <button class="js-cell-action right arrow-right" data-action-x="1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img batiment/cathédrale st Aubin.png" class="cathedrale">
+        <img src="img decors/panneau.png" class="panneau-cathedrale">
+        <img src="img/Cathédrale.png" class="txt-cathedrale-panneau">
+        <img src="img decors/sol béton.png" class="sol-beton">
+        <img src="img decors/batiments décoratif.png" class="batiment-deco-cathedrale">
+        <img src="img decors/batiment deco 2.png" class="batiment-deco-cathedrale-2">
+        <img src="img decors/batiments décoratif.png" class="batiment-deco-cathedrale-3">
+        <img src="img jeux/escargot_number_2.png" class="escargot-pnj">
+        <img src="img decors/batiment deco 2.png" class="batiment-deco-cathedrale-4">
+        <img src="img jeux/cartel.png" class="info-bat">
+        <p class="txt-cathedrale">Une fois, Francwès s'est décidé à jouer de l'orgue impressionné par les sons que donnent celui de la Cathédrale. L'expérience n'était pas vraiment concluante… </p>
+
+        <div class="pnj-dialogue">?</div>
+
+      </li>
+      <li class="cell cell--orange js-cell"  data-x="1" data-y="2">
+        <button class="js-cell-action top   arrow-top"    data-action-y="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action left  arrow-left"  data-action-x="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action right arrow-right" data-action-x="1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action bottom arrow-bottom" data-action-y="1"><img src="img/flèche.png" class="test"/></button>
+      
+        <img src="img jeux/cartel.png" class="cartel cartel-1 cartel-12-1">
+        <img src="img cartel/Djo_Fran_caricature.jpg" class="img-cartel12-1">
+
+        <img src="img jeux/cartel.png" class="cartel cartel-2 cartel-12-2">
+        <img src="img cartel/Djo_Fran_marionnettes.jpg" class="img-cartel12-2">
+
+        <img src="img jeux/cartel.png" class="cartel cartel-3 cartel-12-3">        
+        <img src="img cartel/Djo_Fran_Statue.jpg" class="img-cartel12-3">
+
+        <p class="txt-etiquette-12">Evolution de Djoseph et Francwès</p>
+
+        
+        <img src="img decors/mur.png" class="mur">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+
+
+      <li class="cell cell--yellow js-cell active" data-x="2" data-y="2">
+        <button class="js-cell-action top   arrow-top"   data-action-y="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action left  arrow-left" data-action-x="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action right arrow-right" data-action-x="1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img decors/nuage.png" class="nuage-bourse-1">
+        <img src="img decors/nuage.png" class="nuage-bourse-2">
+        <img src="img decors/nuage.png" class="nuage-bourse-3">
+        <img src="img decors/nuage.png" class="nuage-bourse-4">
+        <img src="img decors/nuage.png" class="nuage-bourse-5">
+
+        <img src="img decors/Buisson.png" class="buisson-bourse-1">
+        <img src="img decors/Buisson.png" class="buisson-bourse-2">
+        <img src="img decors/Buisson.png" class="buisson-bourse-3">
+        <img src="img decors/Buisson.png" class="buisson-bourse-4">
+        <img src="img decors/Buisson.png" class="buisson-bourse-5">
+        <img src="img decors/Buisson.png" class="buisson-bourse-6">
+
+        <img src="img decors/arbre 1.png" class="arbre-bourse-1">
+        <img src="img decors/arbre 1.png" class="arbre-bourse-2">
+        <img src="img decors/arbre 2.png" class="arbre-bourse-3">
+        <img src="img decors/arbre 2.png" class="arbre-bourse-4">
+
+        <img src="img/Bourse.png" class="txt-bourse-panneau">
+        <img src="img decors/panneau.png" class="panneau-bourse">
+
+        <img src="img decors/banc.png" class="banc-bourse-1">
+        <img src="img decors/banc.png" class="banc-bourse-2">
+
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-bourse-1">
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-bourse-2">
+        <img src="img decors/fleur rose.png" class="fleur-rose-bourse-1">
+
+        <img src="img decors/lampadaire.png" class="lampadaire-bourse-1">
+        <img src="img decors/poubelle.png" class="poubelle-bourse-1">
+        
+        <img src="img jeux/cartel.png" class="info-bat">
+        <p class="txt-bourse">L'endroit où Djoseph et Francwès passent le plus de temps, surtout à se chamailler. Leurs pauvres escargots, abasourdis par leurs disputes quotidiennes, souhaitent faire de petites balades solitaires…
+</p>
+
+        <img src="img decors/dessinjofr sans escargot or.png" class="sculpture-bourse">
+        <img src="img batiment/place d'arme.png" class="bourse">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+
+
+      <li class="cell cell--green js-cell "  data-x="3" data-y="2">
+        <button class="js-cell-action right arrow-right" data-action-x="1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action left  arrow-left"  data-action-x="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action bottom arrow-bottom" data-action-y="1"><img src="img/flèche.png" class="test"/></button>
+        
+        <img src="img jeux/cartel.png" class="cartel cartel-1 cartel-32-1">
+        <p class="txt-cartel-1-32">Jean Legrand (1906–2002) fut un artiste namurois aux multiples talents : peintre, dessinateur, caricaturiste et auteur de théâtre. Il est surtout connu pour avoir créé les personnages folkloriques Djoseph et Françwès, emblèmes humoristiques de la ville de Namur.</p>
+        <img src="img cartel/Jean_Legrand.jpg" class="legrand">
+        <img src="img jeux/cartel.png" class="cartel cartel-2 cartel-32-2">
+        <p class="txt-cartel-2-32">Formé à l'Académie des Beaux-Arts de Namur. Dans les années 1950, il expose avec les cercles artistiques "L'Esquisse" et "Le Progrès".Ses œuvres, principalement des paysages et des vues de rivières, sont caractérisées par une structure solide et une lumière expressive, s'inspirant des Ardennes, de la Gaume et de la Sambre avec ses péniches et ses écluses.  
+</p>
+        <img src="img jeux/cartel.png" class="cartel cartel-3 cartel-32-3">
+        <p class="txt-cartel-3-32">Pendant plus de cinquante ans, Jean Legrand a été caricaturiste pour le journal Vers l'Avenir, où il a donné vie à Djoseph et Françwès. Ils ont été immortalisées en 2000 par une sculpture de Suzanne Godart, installée sur la Place d'Armes à Namur.
+</p>
+        <img src="img cartel/Suzanne_Godart.jpg" class="suzanne">
+        <img src="img decors/mur.png" class="mur">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+
+
+      <li class="cell cell--pink  js-cell batiment"   data-x="4" data-y="2">
+        <button class="js-cell-action left arrow-left" data-action-x="-1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img decors/nuage.png" class="nuage-theatre-1">
+        <img src="img decors/nuage.png" class="nuage-theatre-2">
+        <img src="img decors/nuage.png" class="nuage-theatre-3">
+        <img src="img decors/nuage.png" class="nuage-theatre-4">
+        <img src="img decors/nuage.png" class="nuage-theatre-5">
+
+        <img src="img decors/Buisson.png" class="buisson-theatre-1">
+        <img src="img decors/Buisson.png" class="buisson-theatre-2">
+        <img src="img decors/Buisson.png" class="buisson-theatre-3">
+        <img src="img decors/Buisson.png" class="buisson-theatre-4">
+        <img src="img decors/Buisson.png" class="buisson-theatre-5">
+        <img src="img decors/Buisson.png" class="buisson-theatre-6">
+
+        <img src="img decors/arbre 1.png" class="arbre-theatre-1">
+        <img src="img decors/arbre 1.png" class="arbre-theatre-2">
+        <img src="img decors/arbre 2.png" class="arbre-theatre-3">
+        <img src="img decors/arbre 2.png" class="arbre-theatre-4">
+
+        <img src="img/Théâtre.png" class="txt-theatre-panneau">
+        <img src="img decors/panneau.png" class="panneau-theatre">
+
+        <img src="img decors/banc.png" class="banc-theatre-1">
+
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-theatre-1">
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-theatre-2">
+        <img src="img decors/fleur rose.png" class="fleur-rose-theatre-1">
+
+        <img src="img decors/lampadaire.png" class="lampadaire-theatre-1">
+        <img src="img decors/lampadaire.png" class="lampadaire-theatre-2">
+
+        <img src="img decors/poubelle.png" class="poubelle-theatre-1">
+
+        <img src="img jeux/scène.png" class="scene-theatre">
+
+        <img src="img jeux/cartel.png" class="info-bat">
+        <p class="txt-theatre">Djoseph et Francwès aiment se remémorer le bon vieux temps des spectacles de marionnettes. Cela leur rappelle d'ailleurs un petit passage de leurs vie...</p>
+
+        <img src="img batiment/théatre.png" class="theatre">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+
+
+      <li class="cell cell-piano js-cell"   data-x="0" data-y="3">
+          <button class="js-cell-action top   arrow-top"    data-action-y="-1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img jeux/escargot_number_2.png" class="escargot-pnj-piano">
+        <img src="img decors/sol béton.png" class="sol-beton">
+        <img src="img jeux/piano.png" class="piano-entier">
+        <div id="dialogue-box-jeu" class="pnj-jeu" style="display: none;"></div>
+        <p id="dialogue-text-jeu"></p>
+        <div class="note-nom-do">Do</div>
+        <div class="note-nom-re">Re</div>
+        <div class="note-nom-mi">Mi</div>
+        <div class="note-nom-fa">Fa</div>
+        <div class="note-nom-sol">Sol</div>
+        <div class="note-nom-la">La</div>
+        <div class="note-nom-si">Si</div>
+
+        <div class="piano-touch invisible-touch-do" data-note="do"></div>
+        <div class="piano-touch invisible-touch-re" data-note="re"></div>
+        <div class="piano-touch invisible-touch-mi" data-note="mi"></div>
+        <div class="piano-touch invisible-touch-fa" data-note="fa"></div>
+        <div class="piano-touch invisible-touch-sol" data-note="sol"></div>
+        <div class="piano-touch invisible-touch-la" data-note="la"></div>
+        <div class="piano-touch invisible-touch-si" data-note="si"></div>
+        
+      </li>
+      <li class="cell cell--purple js-cell batiment"  data-x="1" data-y="3">
+        <button class="js-cell-action top   arrow-top"    data-action-y="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action bottom arrow-bottom" data-action-y="1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img decors/nuage.png" class="nuage-citadelle-1">
+        <img src="img decors/nuage.png" class="nuage-citadelle-2">
+        <img src="img decors/nuage.png" class="nuage-citadelle-3">
+        <img src="img decors/nuage.png" class="nuage-citadelle-4">
+        <img src="img decors/nuage.png" class="nuage-citadelle-5">
+
+        <img src="img jeux/Namur drapeau.png" class="drapeau-citadelle-1">
+        <img src="img jeux/belgique drapeau_.png" class="drapeau-citadelle-2">
+        <img src="img jeux/Wallonie drapeau.png" class="drapeau-citadelle-3">
+        <img src="img jeux/Escargot drapeau.png" class="drapeau-citadelle-4">
+
+        <img src="img/Citadelle (1).png" class="txt-citadelle-panneau">
+        <img src="img decors/panneau.png" class="panneau-citadelle">
+
+        <img src="img jeux/cartel.png" class="info-bat">
+        <p class="txt-citadelle">Djoseph et Francwès aiment arpenter la Citadelle de bon matin, en regardant la belle Namur se dessiner à chaque pas, même si avec leur lenteur, cela leur prend une bonne partie de la journée.</p>
+
+        <img src="img batiment/Citadelle.png" class="citadelle">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+      <li class="cell cell--black js-cell"   data-x="2" data-y="3"></li>
+      <li class="cell cell--white js-cell batiment"   data-x="3" data-y="3">
+        <button class="js-cell-action top arrow-top" data-action-y="-1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img decors/nuage.png" class="nuage-delta-1">
+        <img src="img decors/nuage.png" class="nuage-delta-2">
+        <img src="img decors/nuage.png" class="nuage-delta-3">
+        <img src="img decors/nuage.png" class="nuage-delta-4">
+        <img src="img decors/nuage.png" class="nuage-delta-5">
+
+        <img src="img decors/Buisson.png" class="buisson-delta-1">
+        <img src="img decors/Buisson.png" class="buisson-delta-2">
+        <img src="img decors/Buisson.png" class="buisson-delta-3">
+        <img src="img decors/Buisson.png" class="buisson-delta-4">
+        <img src="img decors/Buisson.png" class="buisson-delta-5">
+
+        <img src="img decors/arbre 1.png" class="arbre-delta-1">
+        <img src="img decors/arbre 2.png" class="arbre-delta-2">
+
+        <img src="img/Delta (1).png" class="txt-delta-panneau">
+        <img src="img decors/panneau.png" class="panneau-delta">
+
+        <img src="img decors/banc.png" class="banc-delta-1">
+
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-delta-1">
+        <img src="img decors/fleur rose.png" class="fleur-rose-delta-1">
+        <img src="img decors/fleur rose.png" class="fleur-rose-delta-2">
+
+        <img src="img decors/lampadaire.png" class="lampadaire-delta-1">
+
+        <img src="img decors/poubelle.png" class="poubelle-delta-1">
+
+        <img src="img decors/batiment deco 2.png" class="bat-delta-1">
+        <img src="img decors/batiments décoratif.png" class="bat-delta-2">
+        <img src="img decors/batiment deco 2.png" class="bat-delta-3">
+        <img src="img decors/batiments décoratif.png" class="bat-delta-4">
+        <img src="img decors/batiments décoratif.png" class="bat-delta-5">
+
+        <img src="img jeux/cartel.png" class="info-bat">
+        <p class="txt-delta">Point de départ de nombreuses diffusions artistiques, Djoseph s'auto-proclame guide des lieux, bien que son ami soit le seul à écouter ses explications à rallonge.</p>
+
+        <img src="img batiment/Delta.png" class="delta">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+      <li class="cell cell--black js-cell"   data-x="4" data-y="3"></li>
+
+      <li class="cell cell--black js-cell"   data-x="0" data-y="4"></li>
+      <li class="cell cell--brown js-cell"   data-x="1" data-y="4">
+        <button class="js-cell-action top   arrow-top"   data-action-y="-1"><img src="img/flèche.png" class="test"/></button>
+        <button class="js-cell-action right arrow-right" data-action-x="1"><img src="img/flèche.png" class="test"/></button>
+      
+        <img src="img jeux/cartel.png" class="cartel cartel-1 cartel-14-1">
+        <img src="img cartel/mrouge.png" class="img-cartel14-1">
+
+        <img src="img jeux/cartel.png" class="cartel cartel-2 cartel-14-2">
+        <img src="img cartel/2meuse.png" class="img-cartel14-2">
+
+        <img src="img jeux/cartel.png" class="cartel cartel-3 cartel-14-3">
+        <img src="img cartel/026bed54-4d7c-4818-8a44-e3288fef2e1b.jpeg" class="img-cartel14-3">
+
+        <p class="txt-etiquette-14">Autres oeuvres de Jean Legrand</p>
+
+
+        <img src="img decors/mur.png" class="mur">
+        <img src="img decors/sol béton.png" class="sol-beton">
+      </li>
+      <li class="cell cell--bordeau js-cell batiment" data-x="2" data-y="4">
+        <button class="js-cell-action left arrow-left" data-action-x="-1"><img src="img/flèche.png" class="test"/></button>
+        <img src="img decors/nuage.png" class="nuage-pavillon-1">
+        <img src="img decors/nuage.png" class="nuage-pavillon-2">
+        <img src="img decors/nuage.png" class="nuage-pavillon-3">
+        <img src="img decors/nuage.png" class="nuage-pavillon-4">
+        <img src="img decors/nuage.png" class="nuage-pavillon-5">
+
+        <img src="img decors/Buisson.png" class="buisson-pavillon-1">
+        <img src="img decors/Buisson.png" class="buisson-pavillon-2">
+        <img src="img decors/Buisson.png" class="buisson-pavillon-3">
+        <img src="img decors/Buisson.png" class="buisson-pavillon-4">
+        <img src="img decors/Buisson.png" class="buisson-pavillon-5">
+
+        <img src="img decors/arbre 1.png" class="arbre-pavillon-1">
+        <img src="img decors/arbre 2.png" class="arbre-pavillon-2">
+        <img src="img decors/arbre 2.png" class="arbre-pavillon-3">
+
+        <img src="img/Pavillon (1).png" class="txt-pavillon-panneau">
+        <img src="img decors/panneau.png" class="panneau-pavillon">
+
+        <img src="img decors/banc.png" class="banc-pavillon-1">
+
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-pavillon-1">
+        <img src="img decors/fleur mauve.png" class="fleur-mauve-pavillon-2">
+        <img src="img decors/fleur rose.png" class="fleur-rose-pavillon-1">
+        <img src="img decors/fleur rose.png" class="fleur-rose-pavillon-2">
+        <img src="img decors/fleur rose.png" class="fleur-rose-pavillon-3">
+        
+        <img src="img jeux/pavillon sculture.png" class="sculpture-pavillon">
+ 
+        <img src="img decors/lampadaire.png" class="lampadaire-pavillon-1">
+        <img src="img decors/lampadaire.png" class="lampadaire-pavillon-2">
+
+        <img src="img jeux/cartel.png" class="info-bat">
+        <p class="txt-pavillon">Véritable récompense attendant les plus valeureux lors de leur montée de la Citadelle, les expositions numériques de ce centre d'exposition effraient Djoseph et Francwès, qui ne comprennent rien à ces nouvelles technologies. </p>
+
+        <img src="img batiment/pavillon.png" class="pavillon">
+        <img src="img decors/sol terre.png" class="sol-terre">
+      </li>
+      <li class="cell cell--black js-cell"   data-x="3" data-y="4"></li>
+      <li class="cell cell--black js-cell"   data-x="4" data-y="4"></li>
+    </ul>
+
+    <!-- Personnage -->
+      <div id="snail-container">
+        <img src="img decors/escargot (1).png" class="snail" id="snail">
+      </div>
+
+  </div>
+  <!-- ───────── BULLS DE TUTORIEL ───────── -->
+  <div id="bubble1" class="tutorial-bubble hidden">
+    <img src="img jeux/guide moins touriste.png" alt="Personnage" class="bubble-char"/>
+    <p>Pour jouer, utilise les flèches <strong>gauche</strong> et <strong>droite</strong>.</p>
+  </div>
+
+  <div id="bubble3" class="tutorial-bubble hidden">
+    <img src="img jeux/guide moins touriste.png" alt="Personnage" class="bubble-char"/>
+    <div>
+      <p>Parcourez Namur pour trouver les fragments de clé.</p>
+      <button id="bubble3-ok">OK</button>
+    </div>
+  </div>
+
+  <div id="bubble2" class="tutorial-bubble hidden">
+    <img src="img jeux/guide moins touriste.png" alt="Personnage" class="bubble-char"/>
+    <div>
+      <p>Votre but: utiliser la clé pour libérer votre ami enfermé !</p>
+      <button id="bubble2-ok">OK</button>
+    </div>
+  </div>
+  <!-- ────────────────────────────────────── -->
+
+
+</body>
+</html>
