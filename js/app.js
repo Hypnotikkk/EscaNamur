@@ -1,5 +1,8 @@
 "use strict";
 
+console.log(window.innertWidth);
+console.log(window.innertHeight);
+
 // ====== MUSIQUE DE FOND EN PORTEE GLOBALE ======
 const bgMusic = new Audio('sons/fond.mp3');
 bgMusic.loop = true; 
@@ -233,7 +236,11 @@ function performMove(d, wrapDir = 0) {
 
   // Empêche d'aller dans une case noire
   const targetCell = [...cells].find(c => +c.dataset.x === targetX && +c.dataset.y === targetY);
-  if (targetCell?.classList.contains('cell--black')) return;
+  // Nouvelle vérification : si la cellule n’existe pas ou est noire, on annule le déplacement
+  if (!targetCell || targetCell.classList.contains('cell--black')) {
+    return;
+  }
+
 
   // Si tout est ok, on fait l'animation de transition habituelle
   if (gameActive) return;
